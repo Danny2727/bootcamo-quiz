@@ -1,0 +1,26 @@
+.answer-choice {
+    display: flex;
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 2rem;
+    border: .5rem solid white;
+    background-color: white;
+}
+
+.answer-choice:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px;
+    transform: translate(1rem);
+    transition: transform 150ms;
+}
+
+.answer-selection {
+    padding: 1rem 1.5rem;
+    border: 8px solid orange;
+    background-color: orange;
+}
+
+.answer-text {
+    padding: 1rem;
+}
+

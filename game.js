@@ -16,7 +16,7 @@ let questions = [
             "symbol, object, number, margin",
             "python, java, html, css ",
         ],
-        answer: 1
+        answer: "boolean, null, string, symbol"
     },
     {
         question: "What does CSS stand for?",
@@ -26,7 +26,7 @@ let questions = [
             "Cascading Style Sheet",
             "None of the above",
         ],
-        answer: 3
+        answer: "Cascading Style Sheet"
     },
     {
         question: "What does HTML stand for?",
@@ -36,7 +36,7 @@ let questions = [
             "Home Tool Markup Language",
             "Hyper and Text Markup Language",
         ],
-        answer: 2
+        answer: "Hyper Text Markup Language"
     },
 
     {
@@ -47,7 +47,7 @@ let questions = [
             "<dl>",
             "<ol>",
         ],
-        answer: 4
+        answer: "<ol>"
     }
 
 ];
@@ -71,8 +71,8 @@ getNewQuestion = () => {
     currentQuestion = remainingQuestions[questionIndex];
     question.innerText = currentQuestion.question;
 
-     for (let i = 0; i < 4; i++) {
-         var answerEl = document.getElementById(`answer-${[i]}`);
+    for (let i = 0; i < 4; i++) {
+        var answerEl = document.getElementById(`answer-${[i]}`);
         answerEl.textContent = currentQuestion.answers[i];
     }
 
@@ -93,15 +93,18 @@ function answerChecker(event) {
         return;
     }
 
-    if (answerChoice.value !== "target your answer here") {
-        console.log("wrong answer")
+    const answer = answerChoice.lastElementChild.textContent;
+    console.log(answer)
+    console.log(currentQuestion);
+    if (answer === currentQuestion.answer) {
+        console.log("right anwser")
     } else {
-        console.log("right answer")
+        console.log("wrong answer")
     }
 
 }
 
-var answerContainer = document.querySelector('.container');
+var answerContainer = document.querySelector('.answer-choice');
 
 answerContainer.onclick = answerChecker;
 

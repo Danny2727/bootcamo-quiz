@@ -66,6 +66,10 @@ startGame = () => {
 
 getNewQuestion = () => {
 
+    if(remainingQuestions.length === 0 || quesitonCount > questionMax) {
+        return window.location.assign("/end.html");
+    }
+
     questionCount++;
     const questionIndex = Math.floor(Math.random() * remainingQuestions.length);
     currentQuestion = remainingQuestions[questionIndex];
@@ -87,24 +91,27 @@ getNewQuestion = () => {
 
 function answerChecker(event) {
     var answerChoice = event.target
+    // console.log(answerChoice);
+    // console.log(event.currentTarget)
+    var answer;
+    if (answerChoice.matches(".answer-choice")) {
+        answer = answerChoice.lastElementChild.textContent;
+    } else if (answerChoice.matches(".answer-text")) {
+        answer = answerChoice.textContent;
 
-    if (!answerChoice.matches(".answer-choice")) {
-        console.log("not a answer")
-        return;
     }
-
-    const answer = answerChoice.lastElementChild.textContent;
-    console.log(answer)
-    console.log(currentQuestion);
+    console.log(currentQuestion.answer);
     if (answer === currentQuestion.answer) {
         console.log("right anwser")
     } else {
         console.log("wrong answer")
     }
+    
+    getNewQuestion();
 
 }
 
-var answerContainer = document.querySelector('.answer-choice');
+var answerContainer = document.querySelector('#game');
 
 answerContainer.onclick = answerChecker;
 

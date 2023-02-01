@@ -82,7 +82,13 @@ function start() {
     clickBtn.classList.add('hide')
 }
 
-
+// function startTime () {
+//     timer = setinterval(function) {
+//         timerLeft--;
+//         timerRemaining.textContent = timeLeft; 
+//         if (timerLeft)
+//     }
+// }
 
 function click(){
     qI++

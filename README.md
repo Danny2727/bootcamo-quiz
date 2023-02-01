@@ -3,8 +3,7 @@
 
 ## Motivation
 
--The purpose of this project was to create a quiz to test users on thier Web devlopment knowledge with a series of questions. At the end of the quiz thier score is displayed.
-
+-The purpose of this project was to create a quiz to test users on thier Web devlopment knowledge with a series of questions. The key is the fundamentals of java script and dom manipulation.
 ## Installation
 -Clone the repo
 -git init

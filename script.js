@@ -1,105 +1,97 @@
-// const quizInfo = [
-//     {
-//         question: "What are the data types supported by JavaScript?",
-//         a: "boolean, null, string, symbol",
-//         b: "Flex-box, array, variable, integers",
-//         c: "symbol, object, number, margin",
-//         d: "python, java, html, css ",
-//         correct: "a",
-//     },
-//     {
-//         question: "What does CSS stand for?",
-//         a: "Cascading Style Ship",
-//         b: "Cats Slip Slide",
-//         c: "Cascading Style Sheet",
-//         d: "None of the above",
-//         correct: "c",
-//     },
-//     {
-//         question: "What does HTML stand for?",
-//         a: "Hyper Tom Moves LOgs",
-//         b: "Hyper Text Markup Language",
-//         c: "Home Tool Markup Language",
-//         d: "Hyper and Text Markup Language",
-//         correct: "b",
-//     },
+var clickBtn = document.getElementById('click');
+var firstContainer = document.getElementById('first')
+var timeRemaining = document.querySelector('time')
 
-//     {
-//         question: "How can you  make a numbered list?",
-//         a: "<ul>",
-//         b: "<li>",
-//         c: "<dl>",
-//         d: "<ol>",
-//         correct: "d"
-//     }
-
-// ];
-
-// const quiz = document.getElementById("quiz")
-// const answerEl = document.querySelector(".answer")
-// const questionEl = document.getElementById("question")
-// const a_text = document.getElementById("a_text")
-// const b_text = document.getElementById("b_text")
-// const c_text = document.getElementById("c_text")
-// const d_text = document.getElementById("d_text")
-// const submit = document.getElementById("submit")
-// const startBtn = document.querySelector(".startBtn")
-// const startScreen = document.getElementById("start-screen")
+var timer;
+var timeleft;
 
 
+let questions = [
+    {
+        question: "What are the data types supported by JavaScript?",
+        answers: [
+            "boolean, null, string, symbol",
+            "flex-box, array, variable, integers",
+            "symbol, object, number, margin",
+            "python, java, html, css ",
+        ],
+        answer: "boolean, null, string, symbol"
+    },
+    {
+        question: "What does CSS stand for?",
+        answers: [
+            "Cascading Style Ship",
+            "Cats Slip Slide",
+            "Cascading Style Sheet",
+            "None of the above",
+        ],
+        answer: "Cascading Style Sheet"
+    },
+    {
+        question: "What does HTML stand for?",
+        answers: [
+            "Hyper Tom Moves Logs",
+            "Hyper Text Markup Language",
+            "Home Tool Markup Language",
+            "Hyper and Text Markup Language",
+        ],
+        answer: "Hyper Text Markup Language"
+    },
+
+    {
+        question: "How can you  make a numbered list?",
+        answers: [
+            "<ul>",
+            "<li>",
+            "<dl>",
+            "<ol>",
+        ],
+        answer: "<ol>"
+    }
+
+];
+
+var qI = 0
+
+function start() {
+    timeLeft = 60;
+    firstContainer.innerHTML =''
+    // create
+    var h1El = document.createElement('h1')
+    var btnContainer = document.createElement('div')
+    // add
+    h1El.textContent = questions[qI].question
+    // append
+    
+    // take array and create multiple buttons at one time
+    for (i = 0; i < questions[qI].answers.length; i++) {
+        // create
+        var btn = document.createElement('button')
+        
+        // add
+        btn.textContent = questions[qI].answers[i]
+
+        btn.addEventListener('click', click)
+        
+        // append
+        btnContainer.append(btn)
+    }
+    firstContainer.append(h1El, btnContainer)
+
+    // hide my click button after i append the element to the page
+    clickBtn.classList.add('hide')
+}
 
 
-// var thisQuiz = 0;
-// let score = 0;
 
+function click(){
+    qI++
 
-// function startQuiz() {
-//     // unselectAnswers()
-//     quiz.removeAttribute("hidden");
-//     //startScreen.classList.add("hide");
+    if(qI === questions.length){
 
-//     // let thisQuizData = quizInfo[thisQuiz]
+    }else{
+        start()
+    }
+}
 
-//     // questionEl.innerText = thisQuizData.question
-//     // a_text.innerText = thisQuizData.a
-//     // b_text.innerText = thisQuizData.b
-//     // c_text.innerText = thisQuizData.c
-//     // d_text.innerText = thisQuizData.d
-// }
-
-
-// startBtn.addEventListener("click", startQuiz());
-// function unselectAnswers() {
-//     answerEl.forEach(answerEl => answerEl.checked= false)
-// }
-
-// function selectedAnswer() {
-//     let answer 
-
-//     answerEl.forEach(answerEl => {
-//         if(answerEl.checked) {
-//             answer = answerEl.id
-//     }
-//     return answer;
-// });
-// }
-
-// submit.addEventListener('click', () => {
-//     const answer = selectedAnswer()
-
-//     if(answer) {
-//         if(answer === quizInfo(thisQuiz).correct) {
-//             score++
-//         }
-
-//         thisQuiz++
-
-//         if(thisQuiz < quizInfo.length) {
-//             startQuiz()
-//         } else {
-//             quiz.innerHTML = `
-//             <h2>Your answer ${score}/${quizInfor.length} questions correctly </h2>
-//             `
-//         }
-// }
-// }) 
+clickBtn.addEventListener('click', start)

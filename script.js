@@ -1,9 +1,9 @@
 var clickBtn = document.getElementById('click');
 var firstContainer = document.getElementById('first')
-var timeRemaining = document.querySelector('time')
+var timeRemaining = document.querySelector('.time')
 
 var timer;
-var timeleft;
+var timeLeft = 5;
 
 
 let questions = [
@@ -54,7 +54,6 @@ let questions = [
 var qI = 0
 
 function start() {
-    timeLeft = 60;
     firstContainer.innerHTML = ''
     // create
     var h1El = document.createElement('h1')
@@ -87,12 +86,15 @@ function start() {
 function startTime() {
     timer = setInterval(function() {
         timeLeft--;
-        timeElement.textContent = timeLeft;
-        if (timerLeft == 0) {
+        timeRemaining.textContent = timeLeft;
+        if (timerLeft === 0) {
             clearInterval(timer);
+            
         }
     }, 1000);
 }
+
+
 
 
 function click() {

@@ -54,9 +54,17 @@ let questions = [
 
 var qI = 0
 
+//Starts the game 
 function start() {
+    startTime()
+    displayQuestion()
+    // hide my click button after i append the element to the page
+    clickBtn.classList.add('hide')
+}
+
+// Displays the Current question in index
+function displayQuestion() {
     firstContainer.innerHTML = ''
-    // create
     var h1El = document.createElement('h1')
     var btnContainer = document.createElement('div')
     // add
@@ -78,37 +86,34 @@ function start() {
     }
     firstContainer.append(h1El, btnContainer)
 
-    startTime()
-
-    // hide my click button after i append the element to the page
-    clickBtn.classList.add('hide')
 }
 
 // Starts the time 
 function startTime() {
-    timer = setInterval(function() {
+    timer = setInterval(function () {
         timeLeft--;
         timeRemaining.textContent = timeLeft;
         if (timeLeft === 0) {
             clearInterval(timer);
-            
         }
     }, 1000);
 }
 
 // Checks the users input for right or wrong answer
 function click(e) {
-    let userInput  = e.target.textContent; 
+    let userInput = e.target.textContent;
     // get the answer for current the question  
     console.log(userInput)
-    
+    // penalizes user for the wrong input
     if (questions[qI].question !== e.target.textContent) {
-        timeLeft-=2;
-    } 
-     qI++
+        timeLeft -= 5;
+    }
+    //Updates to the next quesiton once user as seleceted a answer
+    qI++ 
+    displayQuestion()
 }
 
 clickBtn.addEventListener('click', start)
 
 
-  
+

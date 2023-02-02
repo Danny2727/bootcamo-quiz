@@ -84,6 +84,7 @@ function start() {
     clickBtn.classList.add('hide')
 }
 
+// Starts the time 
 function startTime() {
     timer = setInterval(function() {
         timeLeft--;
@@ -95,8 +96,14 @@ function startTime() {
     }, 1000);
 }
 
+// Checks the users answer
 function answerChecker() { 
-    if (document.getElementById('button').value = "")
+    if (userAnswer !== answer) {
+        //if (answer is wrong) {timeLeft subtract X amount} 
+        timeLeft--
+    } else {
+        //no subtraction and other logic ?
+    }
 
 
 

@@ -78,14 +78,16 @@ function start() {
     }
     firstContainer.append(h1El, btnContainer)
 
+    startTime()
+
     // hide my click button after i append the element to the page
     clickBtn.classList.add('hide')
 }
 
 function startTime() {
-    timer = setinterval(function() {
-        timerLeft--;
-        timerRemaining.textContent = timeLeft;
+    timer = setInterval(function() {
+        timeLeft--;
+        timeElement.textContent = timeLeft;
         if (timerLeft == 0) {
             clearInterval(timer);
         }

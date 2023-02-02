@@ -3,8 +3,8 @@ var firstContainer = document.getElementById('first')
 var timeRemaining = document.querySelector('.time')
 
 var timer;
-var timeLeft = 5;
-var userAnswer = false;
+var timeLeft = 60;
+var userAnswer = true;
 
 
 let questions = [
@@ -96,27 +96,19 @@ function startTime() {
     }, 1000);
 }
 
-// Checks the users answer
-function answerChecker() { 
-    if (userAnswer !== answer) {
-        //if (answer is wrong) {timeLeft subtract X amount} 
-        timeLeft--
-    } else {
-        //no subtraction and other logic ?
-    }
-
-
-
-}
-
-function click() {
-    qI++
-
-    if (qI === questions.length) {
-
-    } else {
-        start()
-    }
+// Checks the users input for right or wrong answer
+function click(e) {
+    let userInput  = e.target.textContent; 
+    // get the answer for current the question  
+    console.log(userInput)
+    
+    if (questions[qI].question !== e.target.textContent) {
+        timeLeft-=2;
+    } 
+     qI++
 }
 
 clickBtn.addEventListener('click', start)
+
+
+  

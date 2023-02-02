@@ -3,7 +3,7 @@ var firstContainer = document.getElementById('first')
 var timeRemaining = document.querySelector('.time')
 
 var timer;
-var timeLeft = 60;
+var timeLeft = 45;
 var userAnswer = true;
 
 
@@ -53,7 +53,7 @@ let questions = [
 ];
 
 var qI = 0
-
+var score = 0
 //Starts the game 
 function start() {
     startTime()
@@ -108,9 +108,22 @@ function click(e) {
     if (questions[qI].question !== e.target.textContent) {
         timeLeft -= 5;
     }
+
     //Updates to the next quesiton once user as seleceted a answer
     qI++ 
     displayQuestion()
+}
+
+function endQuiz() { 
+   
+    if (timeLeft <= 0 || qI === questions.length) {
+        endQuiz();
+    } else {
+        displayQuestion();
+    } 
+
+btnContainer.classList.add('hide')
+
 }
 
 clickBtn.addEventListener('click', start)

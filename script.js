@@ -54,6 +54,7 @@ let questions = [
 
 var qI = 0
 var score = 0
+var btnContainer
 //Starts the game 
 function start() {
     startTime()
@@ -66,8 +67,9 @@ function start() {
 function displayQuestion() {
     firstContainer.innerHTML = ''
     var h1El = document.createElement('h1')
-    var btnContainer = document.createElement('div')
+    btnContainer = document.createElement('div')
     // add
+    console.log(questions[qI])
     h1El.textContent = questions[qI].question
     // append
 
@@ -84,6 +86,11 @@ function displayQuestion() {
         // append
         btnContainer.append(btn)
     }
+
+    if (qI === questions.length) {
+        endQuiz();
+    }
+
     firstContainer.append(h1El, btnContainer)
 
 }
@@ -93,8 +100,9 @@ function startTime() {
     timer = setInterval(function () {
         timeLeft--;
         timeRemaining.textContent = timeLeft;
-        if (timeLeft === 0) {
+        if (timeLeft <= 0) {
             clearInterval(timer);
+            endQuiz()
         }
     }, 1000);
 }
@@ -105,24 +113,25 @@ function click(e) {
     // get the answer for current the question  
     console.log(userInput)
     // penalizes user for the wrong input
+    console.log(qI)
     if (questions[qI].question !== e.target.textContent) {
         timeLeft -= 5;
     }
 
     //Updates to the next quesiton once user as seleceted a answer
-    qI++ 
-    displayQuestion()
+    qI++
+    if (qI <= questions.length - 1) {
+        displayQuestion()
+    } else {
+        endQuiz();
+    }
+
+
 }
 
-function endQuiz() { 
-   
-    if (timeLeft <= 0 || qI === questions.length) {
-        endQuiz();
-    } else {
-        displayQuestion();
-    } 
-
-btnContainer.classList.add('hide')
+function endQuiz() {
+    console.log('quiz ended')
+    btnContainer.classList.add('hide')
 
 }
 

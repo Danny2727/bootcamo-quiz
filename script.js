@@ -4,6 +4,7 @@ var timeRemaining = document.querySelector('.time')
 
 var timer;
 var timeLeft = 5;
+var userAnswer = false;
 
 
 let questions = [
@@ -87,15 +88,19 @@ function startTime() {
     timer = setInterval(function() {
         timeLeft--;
         timeRemaining.textContent = timeLeft;
-        if (timerLeft === 0) {
+        if (timeLeft === 0) {
             clearInterval(timer);
             
         }
     }, 1000);
 }
 
+function answerChecker() { 
+    if (document.getElementById('button').value = "")
 
 
+
+}
 
 function click() {
     qI++

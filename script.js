@@ -55,24 +55,24 @@ var qI = 0
 
 function start() {
     timeLeft = 60;
-    firstContainer.innerHTML =''
+    firstContainer.innerHTML = ''
     // create
     var h1El = document.createElement('h1')
     var btnContainer = document.createElement('div')
     // add
     h1El.textContent = questions[qI].question
     // append
-    
+
     // take array and create multiple buttons at one time
     for (i = 0; i < questions[qI].answers.length; i++) {
         // create
         var btn = document.createElement('button')
-        
+
         // add
         btn.textContent = questions[qI].answers[i]
 
         btn.addEventListener('click', click)
-        
+
         // append
         btnContainer.append(btn)
     }
@@ -82,20 +82,23 @@ function start() {
     clickBtn.classList.add('hide')
 }
 
-// function startTime () {
-//     timer = setinterval(function) {
-//         timerLeft--;
-//         timerRemaining.textContent = timeLeft; 
-//         if (timerLeft)
-//     }
-// }
+function startTime() {
+    timer = setinterval(function() {
+        timerLeft--;
+        timerRemaining.textContent = timeLeft;
+        if (timerLeft == 0) {
+            clearInterval(timer);
+        }
+    }, 1000);
+}
 
-function click(){
+
+function click() {
     qI++
 
-    if(qI === questions.length){
+    if (qI === questions.length) {
 
-    }else{
+    } else {
         start()
     }
 }

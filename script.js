@@ -1,6 +1,7 @@
 var clickBtn = document.getElementById('click');
 var firstContainer = document.getElementById('first')
 var timeRemaining = document.querySelector('.time')
+var quiz = document.querySelector('.quiz')
 
 var timer;
 var timeLeft = 45;
@@ -132,6 +133,29 @@ function click(e) {
 function endQuiz() {
     console.log('quiz ended')
     btnContainer.classList.add('hide')
+    quiz.classList.add('hide')
+    highScore()
+}
+
+function highScore() {
+    // Created text for highscores screen
+    var h2El = document.createElement('h2')
+    var scores = document.createElement ('p')
+    submitBtn = document.createElement('button')
+    submitBtn.setAttribute('margin-left')
+// Added the text for the created elements 
+    submitBtn.innerText = 'submit'
+    h2El.textContent = "High Scores"
+//Styled the input box 
+    userName = document.createElement('input')
+    userName.maxLength = 200;
+    userName.cols = 10;
+    userName.rows = 1;
+
+// Appended the created elements to the body
+    document.body.append(h2El)
+    document.body.append(userName)
+    document.body.append(submitBtn)
 
 }
 

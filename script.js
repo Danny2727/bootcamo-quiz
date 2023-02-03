@@ -12,41 +12,41 @@ let questions = [
     {
         question: "What are the data types supported by JavaScript?",
         answers: [
-            "boolean, null, string, symbol",
-            "flex-box, array, variable, integers",
-            "symbol, object, number, margin",
-            "python, java, html, css ",
+            "A. boolean, null, string, symbol",
+            "B. flex-box, array, variable, integers",
+            "C. symbol, object, number, margin",
+            "D. python, java, html, css ",
         ],
-        answer: "boolean, null, string, symbol"
+        answer: "A. boolean, null, string, symbol"
     },
     {
         question: "What does CSS stand for?",
         answers: [
-            "Cascading Style Ship",
-            "Cats Slip Slide",
-            "Cascading Style Sheet",
-            "None of the above",
+            "A. Cascading Style Ship",
+            "B. Cats Slip Slide",
+            "C. Cascading Style Sheet",
+            "D. None of the above",
         ],
-        answer: "Cascading Style Sheet"
+        answer: "C. Cascading Style Sheet"
     },
     {
         question: "What does HTML stand for?",
         answers: [
-            "Hyper Tom Moves Logs",
-            "Hyper Text Markup Language",
-            "Home Tool Markup Language",
-            "Hyper and Text Markup Language",
+            "A. Hyper Tom Moves Logs",
+            "B. Hyper Text Markup Language",
+            "C. Home Tool Markup Language",
+            "D. Hyper and Text Markup Language",
         ],
-        answer: "Hyper Text Markup Language"
+        answer: "B. Hyper Text Markup Language"
     },
 
     {
         question: "How can you  make a numbered list?",
         answers: [
-            "<ul>",
-            "<li>",
-            "<dl>",
-            "<ol>",
+            "A. <ul>",
+            "B. <li>",
+            "C. <dl>",
+            "D. <ol>",
         ],
         answer: "<ol>"
     }
@@ -126,6 +126,7 @@ function click(e) {
     if (qI <= questions.length - 1) {
         displayQuestion()
     } else {
+        clearInterval(timer);
         endQuiz();
     }
 

@@ -3,6 +3,22 @@
     background-color: aqua;
 } */
 
+:root{
+    background-color: aquamarine;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    background-color: antiquewhite;
+    align-items: center;
+}
+
 .hide {
     display: none;
 }
+
+
+

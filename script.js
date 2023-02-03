@@ -143,28 +143,38 @@ function highScore() {
     // Created text for highscores screen
     var h2El = document.createElement('h2')
     submitBtn = document.createElement('button')
-    var scores = document.createElement ('p')
+    var scores = document.createElement('p')
     scores.innerText = `${score}/4`;
 
-// Added the text for the created elements 
+    // Added the text for the created elements 
     submitBtn.innerText = 'submit'
     h2El.textContent = "High Scores"
 
-//Styled the input box 
+    //Styled the input box 
     userName = document.createElement('input')
+    userName.id = 'name-input'
     userName.maxLength = 200;
     userName.cols = 10;
     userName.rows = 1;
 
-// Appended the created elements to the body
+    // Appended the created elements to the body
     document.body.append(h2El)
     document.body.append(userName)
     document.body.append(scores)
     document.body.append(submitBtn)
 
+    localStorage.setItem('score', score)
+
+    userName.addEventListener('change', function () {
+        var nameInput = document.getElementById('name-input')
+        var nameValue = nameInput.value
+        localStorage.setItem('name', nameValue)
+    })
+
 }
 
 clickBtn.addEventListener('click', start)
+
 
 
 

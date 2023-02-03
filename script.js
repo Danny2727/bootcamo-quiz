@@ -115,8 +115,10 @@ function click(e) {
     console.log(userInput)
     // penalizes user for the wrong input
     console.log(qI)
-    if (questions[qI].question !== e.target.textContent) {
+    if (questions[qI].answer !== e.target.textContent) {
         timeLeft -= 5;
+    } else {
+        score++
     }
 
     //Updates to the next quesiton once user as seleceted a answer
@@ -140,12 +142,14 @@ function endQuiz() {
 function highScore() {
     // Created text for highscores screen
     var h2El = document.createElement('h2')
-    var scores = document.createElement ('p')
     submitBtn = document.createElement('button')
-    submitBtn.setAttribute('margin-left')
+    var scores = document.createElement ('p')
+    scores.innerText = `${score}/4`;
+
 // Added the text for the created elements 
     submitBtn.innerText = 'submit'
     h2El.textContent = "High Scores"
+
 //Styled the input box 
     userName = document.createElement('input')
     userName.maxLength = 200;
@@ -155,6 +159,7 @@ function highScore() {
 // Appended the created elements to the body
     document.body.append(h2El)
     document.body.append(userName)
+    document.body.append(score)
     document.body.append(submitBtn)
 
 }

@@ -159,7 +159,7 @@ function highScore() {
 // Appended the created elements to the body
     document.body.append(h2El)
     document.body.append(userName)
-    document.body.append(score)
+    document.body.append(scores)
     document.body.append(submitBtn)
 
 }
